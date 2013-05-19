@@ -73,7 +73,7 @@ newyear=$(echo $enddate| awk '{print $1}' | cut -d "-" -f3)
 
 touch -m -t $oldyear$oldmonth$oldday$oldhour$oldminute /tmp/startdate
 touch -m -t $newyear$newmonth$newday$newhour$newminute /tmp/enddate
-find $pstrdir -newer /tmp/startdate ! -newer /tmp/enddate | sort > $PSTRsearchdir/PSTR.todo
+find $pstrdir/*.pstr -newer /tmp/startdate ! -newer /tmp/enddate | sort > $PSTRsearchdir/PSTR.todo
 rm -rf /tmp/startdate
 rm -rf /tmp/enddate
 }
