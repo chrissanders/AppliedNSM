@@ -1,0 +1,41 @@
+ #############
+ ## pstr.sh ##
+ #############
+ #Written by Jason Smith
+ #
+ #pstr.sh is a utility designed to pull out human readable metadata from raw PCAP files.
+ #
+ #   -D (--Daemonize)
+ #          When running pstr.sh, send the process to the background as a daemon.
+ #
+ #   -r (--read)
+ #          Select a directory containing PCAP files for pstr.sh to use when creating PSTR from PCAP.
+ #
+ #   -w (--write)
+ #          Select a directory for pstr.sh to write PSTR files to.
+ #
+ #   -f (--filter)
+ #          Provide a tcpdump filter for pstr.sh to use when reading PCAP files. Default is 'tcp port 80 or tcp port 25'.
+ #
+ #   -d (--delete)
+ #          Provide the number of days you would like to keep PSTR files before rolling over. Default is forever.
+ #
+ ### Example Usage ##
+ # 
+ # - The following will daemonize a pstr process that is collecting metadata from tcp port 80 or udp port 53 based on pcap located at /data/pcap/ 
+ # - The files will be written to /data/pstr/
+ # <><>[idsusr@localhost ~]# sudo ./pstr.sh -r /data/pcap/ -w /data/pstr/ -d 10 -f 'tcp port 80 or udp port 53' -D 
+ # 
+ # - The following will start a pstr process that is collecting metadata from port 25 communications containing 192.168.2.54 based on pcap located at /home/user/pcap/
+ # - The files will be written to /var/log/pstr/
+ # <><>[idsusr@localhost ~]# sudo ./pstr.sh -r /home/user/pcap/ -w /var/log/pstr/ -f 'host 192.168.2.54 and tcp port 25'
+ #
+ ##################
+ ## PSTRsearch.sh #
+ ##################
+ #Written by Jason Smith
+ #
+ #Configure PSTRsearch.sh by editing the top configuration lines in the script.
+ ##PSTRsearchdir="/home/$USER/AppliedNSM/PSTR/PSTRsearch/"
+ ##pstrdir="/home/$USER/AppliedNSM/PSTR/PSTRfiles"
+ #

@@ -2,14 +2,14 @@
 #PSTRsearch.sh
 
 ## Variable Configuration. Change as required. ##
-PSTRsearchdir="/home/ids.usr/PSTRsearch/"
-#malfinddir="/home/ids.usr/Malfind/"
-pstrdir='/data/pstr/'
+PSTRsearchdir="/home/$USER/AppliedNSM/PSTR/PSTRsearch/"
+pstrdir="/home/$USER/AppliedNSM/PSTR/PSTRfiles"
+#scruffdir="/home/$USER/scruff/"
 #################################################
 
 ## Checking Variable Sanity ##
-#if [ ! -d "$malfinddir" ]; then
-#        echo "$malfinddir directory doesn't exist. Exiting."
+#if [ ! -d "$scruffdir" ]; then
+#        echo "$scruffdir directory doesn't exist. Exiting."
 #        exit
 #fi
 
@@ -38,9 +38,9 @@ echo "$currentdatenow"
 echo ""
 echo 'Enter start date for your search (ex. mm-dd-yyyy HH:MM "08-18-2009 13:52"):'
 read startdate
-echo test $startdate
+#echo test $startdate
 valiDATE=$(echo $startdate | grep '[0-9]\{2\}-[0-9]\{2\}-[0-9]\{4\} [0-9]\{2\}:[0-9]\{2\}')
-echo test $valiDATE
+#echo test $valiDATE
 if [ -z "$valiDATE" ];then
 	echo "Invalid Start Date. Defaulting to the beginning of the current date only."
 	startdate=$(date "+%m-%d-%Y 00:00")
@@ -135,7 +135,7 @@ echo ""
 echo "<><><><><><><><><><><><><><><><><><><><><><><><><><>" 
 echo "Lastly, please enter the term you would like to search for (eg. Host: google.com):"
 read -r searchterm
-echo -e "$searchterm"
+#echo -e "$searchterm"
 sleep 5
 if [ -z "$searchterm" ]; then
 	echo "You didn't enter a search term. Exiting..."

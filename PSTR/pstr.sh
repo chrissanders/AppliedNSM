@@ -147,9 +147,9 @@ fi
                 echo "Reading PCAP files from $pcapdir"
                 echo "Reading PSTR files from $pstrdir"
                 echo "Applying the following filter; $BPF"
-		if [ ! -z "$pcapagenttest" ];then
-#                        echo "Ongoing PCAP logging detected. Will continuously process until ctrl+c."
-                fi
+#		if [ ! -z "$pcapagenttest" ];then
+ #                       echo "Ongoing PCAP logging detected. Will continuously process until ctrl+c."
+#                fi
 		if [ ! -z "$rollover" ];then
         		echo "PSTR files will rollover every $rollover day(s)."
 		fi
@@ -222,9 +222,9 @@ fi
 find $pstrdir/* -mmin +$rollover -exec rm {} \;
 	fi
 	if [ -z "$file" ];then
-		if [ -z "$pcapagenttest" ];then
+#		if [ -z "$pcapagenttest" ];then
 #                        echo "No on-going PCAP agent process detected for the selected PCAP directory. If this is true, press ctrl+c to quit. Continuing until quit."
-               	fi
-		sleep 5
+#              	fi
+		sleep 1
 	fi
 done
