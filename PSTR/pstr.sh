@@ -7,11 +7,11 @@
 ## Example Usage ##
 # - The following will daemonize a pstr process that is collecting metadata from tcp port 80 or udp port 53 based on pcap located at /data/pcap/.
 # - The files will be written to /data/pstr/
-# [root@localhost ~]# ./pstr.sh -r /data/pcap/ -w /data/pstr/ -d 10 -f 'tcp port 80 or udp port 53' -D
+# [idsusr@localhost ~]# sudo ./pstr.sh -r /data/pcap/ -w /data/pstr/ -d 10 -f 'tcp port 80 or udp port 53' -D
 
 # - The following will daemonize a pstr process that is collecting metadata from port 25 communications containing 192.168.2.54 based on pcap located at /home/user/pcap/.
 # - The files will be written to /var/log/pstr/
-# [root@localhost ~]# ./pstr.sh -r /home/user/pcap/ -w /var/log/pstr/ -f 'host 192.168.2.54 and tcp port 25'
+# [idsusr@localhost ~]# sudo ./pstr.sh -r /home/user/pcap/ -w /var/log/pstr/ -f 'host 192.168.2.54 and tcp port 25'
 
 sleep 1
 echo ""
@@ -78,11 +78,11 @@ if [ ! -z "$helpoption" ];then
 		echo " "
 		echo ' - The following will daemonize a pstr process that is collecting metadata from tcp port 80 or udp port 53 based on pcap located at /data/pcap/ '
 		echo ' - The files will be written to /data/pstr/'
-		echo " <><>[root@localhost ~]# ./pstr.sh -r /data/pcap/ -w /data/pstr/ -d 10 -f 'tcp port 80 or udp port 53' -D "
+		echo " <><>[idsusr@localhost ~]# sudo ./pstr.sh -r /data/pcap/ -w /data/pstr/ -d 10 -f 'tcp port 80 or udp port 53' -D "
 		echo " "
 		echo ' - The following will start a pstr process that is collecting metadata from port 25 communications containing 192.168.2.54 based on pcap located at /home/user/pcap/'
 		echo ' - The files will be written to /var/log/pstr/'
-		echo " <><>[root@localhost ~]# ./pstr.sh -r /home/user/pcap/ -w /var/log/pstr/ -f 'host 192.168.2.54 and tcp port 25'"
+		echo " <><>[idsusr@localhost ~]# sudo ./pstr.sh -r /home/user/pcap/ -w /var/log/pstr/ -f 'host 192.168.2.54 and tcp port 25'"
 		echo " "
 	exit
 fi
