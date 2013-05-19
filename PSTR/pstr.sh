@@ -48,7 +48,7 @@ done
 
 ## Identify PCAP creation process if currently logging ##
 echo ""
-pcapagenttest=$(lsof $pcapdir/*|awk '{print $1}' | tail -1)
+#pcapagenttest=$(lsof $pcapdir/*|awk '{print $1}' | tail -1)
 ## Display Help ##
 if [ ! -z "$helpoption" ];then
 	clear
@@ -148,7 +148,7 @@ fi
                 echo "Reading PSTR files from $pstrdir"
                 echo "Applying the following filter; $BPF"
 		if [ ! -z "$pcapagenttest" ];then
-                        echo "Ongoing PCAP logging detected. Will continuously process until ctrl+c."
+#                        echo "Ongoing PCAP logging detected. Will continuously process until ctrl+c."
                 fi
 		if [ ! -z "$rollover" ];then
         		echo "PSTR files will rollover every $rollover day(s)."
@@ -182,10 +182,10 @@ while [ true ]
 	do
 
 ## auto-identify pcaps for analysis ##
-	pcapagent=$(lsof | grep $pcapdir | awk '{print $1}')
+#	pcapagent=$(lsof | grep $pcapdir | awk '{print $1}')
 if [ ! -z "$pcapdir" ];then
 		if [ ! -z "$pcapagent" ];then
-		currentpcap=$(lsof -c $pcapagent | grep $pcapdir |awk '{print $9}')
+#		currentpcap=$(lsof -c $pcapagent | grep $pcapdir |awk '{print $9}')
 		file $pcapdir* | grep tcpdump | cut -d ':' -f1 | awk -F "/" '{ print $NF; }' |grep -v $currentpcap > $pstrshDIR/pcapindex.txt
 		else
 	file $pcapdir* | grep tcpdump | cut -d ':' -f1 | awk -F "/" '{ print $NF; }' > $pstrshDIR/pcapindex.txt
@@ -223,7 +223,7 @@ find $pstrdir/* -mmin +$rollover -exec rm {} \;
 	fi
 	if [ -z "$file" ];then
 		if [ -z "$pcapagenttest" ];then
-                        echo "No on-going PCAP agent process detected for the selected PCAP directory. If this is true, press ctrl+c to quit. Continuing until quit."
+#                        echo "No on-going PCAP agent process detected for the selected PCAP directory. If this is true, press ctrl+c to quit. Continuing until quit."
                	fi
 		sleep 5
 	fi
