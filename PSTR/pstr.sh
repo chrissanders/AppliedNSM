@@ -201,7 +201,7 @@ if [ ! -z "$pcapdir" ];then
 		if [ -z "$unprocessedpcap" ];then
 ## Bare Parsing of PCAP ##
 	echo "Processing $file..."
-	/usr/sbin/tcpdump -qnns 500 -A -r $pcapdir/$file "$BPF" | \
+	/usr/sbin/tcpdump -qnns $snaplength -A -r $pcapdir/$file "$BPF" | \
 			strings | \
 			sed '/^$/d'| \
 			sed '/[0-9][0-9]\:[0-9][0-9]\:[0-9][0-9].[0-9]\{6\} IP [0-9]\{1,3\}\.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}/{x;p;x;}'| \
