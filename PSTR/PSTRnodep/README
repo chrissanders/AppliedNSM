@@ -1,0 +1,4 @@
+The no-dependency version is rarely modified due to the very rare use it sees compared to the other version.
+
+I still welcome feature requests to this version of PSTR and will addresses bugs as quickly as possible, but I highly 
+recommend that you use the other version if you have no restrictions on software dependencies in your organizations.
